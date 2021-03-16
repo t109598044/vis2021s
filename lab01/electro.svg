@@ -26,7 +26,7 @@
   <path d="M256 448 H0 H512" stroke="lightgray" fill="white"></path>
   <text x="2" y="452" font-size="12" text-anchor="start" fill="red">448</text>
   <text x="2" y="510" font-size="12" text-anchor="start" fill="red">512</text>
-
+  
   <path d="M64  0 V512" stroke="lightgray" fill="white"></path>
   <text x="58" y="12" font-size="12" text-anchor="start" fill="red">64</text>
   <path d="M128  0 V512" stroke="lightgray" fill="white"></path>
@@ -45,6 +45,33 @@
 
   <path d="M256 256 V270 V242 M256 256 H270 H242" stroke="black" fill="white"></path>
   <text x="254" y="250" font-size="16" text-anchor="middle" fill="red">(256, 256)</text>
-</svg>
+  
+  <path d="M192 0 Q145 70, 200 64 T194 125" stroke-width="10" stroke="#FFFC20" fill="none"/>
 
+  //face
+  <rect x="3" y="120" fill="#FFFC20" stroke="#FFFC20" stroke-width="3" width="385" opacity="0.5" height="264"/>
+
+  //eyebrow
+  <path d="M0 230 l120 0" stroke-width="8" stroke="#000" fill="none"/>
+  <path d="M270 230 l120 0" stroke-width="8" stroke="#000" fill="none"/>
+
+  //mouth
+  <path d="M170 325 q22 65, 50 0" stroke-width="8" stroke="#000" fill="none"/>
+
+  //body
+  <path d="M132 410 A50 20, -45, 0, 0, 120 480" stroke-width="8" stroke="#000" fill="none"/>
+  <path d="M140 384 A64 104, 0, 0, 0, 128 448" stroke-width="8" stroke="#000" fill="none"/>
+  <path d="M158 486 h70" stroke-width="8" stroke="#000" fill="none"/>
+  <ellipse fill="none" stroke="#000" stroke-width="8" cx="245" cy="470" rx="22" ry="27"/>
+  <ellipse fill="none" stroke="#000" stroke-width="8" cx="145" cy="470" rx="22" ry="27"/>
+  <path d="M245 384 A64 104, 0, 0, 1, 258 448" stroke-width="8" stroke="#000" fill="none"/>
+  <path d="M255 410 A50 20, 45, 0, 1, 265 480" stroke-width="8" stroke="#000" fill="none"/>
+
+  //wire
+  <path d="M277 430 q50 -30, 100 0 T445 385" stroke-width="8" stroke="#000" fill="none"/>
+  <path d="M460 365 l10 -20" stroke-width="8" stroke="#000" fill="none"/>
+  <path d="M448 360 l10 -20" stroke-width="8" stroke="#000" fill="none"/>
+  <path d="M440 355 q-5 65, 30 15z" stroke-width="8" stroke="#000" fill="none"/>
+
+</svg>
     
