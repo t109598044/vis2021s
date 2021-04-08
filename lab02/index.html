@@ -146,7 +146,7 @@
 					.append('text')
 					 .attr('x', ({x0}) => x0 + 1)
 					 .attr('y', ({y0}) => y0 + 20)
-					 .text(({data}) => data.name)
+					 .text(({data}) => data.address)
 					 .attr('font-size', '1rem')
 					 .attr('fill', 'white')
 				
@@ -158,7 +158,7 @@
 					.append('text')
 					 .attr('x', ({x0}) => x0 + 1)
 					 .attr('y', ({y0}) => y0 + 35)
-					 .text(({data}) => data.value < 60 ? '' : data.value)
+					 .text(({data}) => 'Value : '+  data.value)
 					 .attr('font-size', '.9rem')
 					 .attr('fill', 'white')
 					 
@@ -169,7 +169,7 @@
 					.append('text')
 					 .attr('x', ({x0}) => x0 + 1)
 					 .attr('y', ({y0}) => y0 + 50)
-					 .text(({data}) => parseFloat(data.seconds) > 30 ? '不及格' : '(' + data.seconds + '秒)')
+					 .text(({data}) => 'Start : '+ parseFloat(data.total) )
 					 .attr('font-size', '.9rem')
 					 .attr('fill', 'white')
 					 
@@ -214,23 +214,24 @@
 						fr.onload = () => {
 							const allBoss = []
 							const studentArr = fr.result.split('\n').map(e => e.split(','))
+							console.log(studentArr)
 							
 							const d3Json = {
 								children: [],
-								name: 'vis2021s'
+								name: 'army'
 							}
 							
 							//先由小到大排列，算出名次、級距、再算出分數
 							const mapping = new Array(41).fill(-1)
 							const scoreSort = studentArr.sort((x,y) => {
-								let a = isNaN(parseFloat(x[3])) ? 40 : parseFloat(x[3])
-								let b = isNaN(parseFloat(y[3])) ? 40 : parseFloat(y[3])
+								let a = parseFloat(x[6])
+								let b = parseFloat(y[6])
 								
-								return a-b
-							}).map(e => isNaN(parseFloat(e[3])) ? 40 : parseFloat(e[3]))
+								return b-a
+							}).map(e => parseFloat(e[6]))
 							
-							const scoreSet = [...new Set([...scoreSort.filter(e => e<=30)])]
-							const step = (100 - 60) / scoreSet.length
+							const scoreSet = [...new Set(scoreSort)]
+							const step = (100 - 40) / scoreSet.length
 							
 							for(let i of scoreSort){
 								const idx = scoreSet.indexOf(i)
@@ -243,13 +244,10 @@
 								}
 								mapping[i] = score
 							}
-							
-							
-							
+							console.log(mapping)
 							
 							for(let i of studentArr){
-								const bossName = i[2].length ? i[2] : (i[1] == '碩' ? '未知' : '資工四')
-								
+								const bossName = i[0]								
 								
 								if(allBoss.indexOf(bossName) == -1){
 									allBoss.push(bossName)
@@ -259,15 +257,15 @@
 									})
 								}
 								
-								const seconds = isNaN(parseInt(i[3])) ? 40 : parseInt(i[3])
+								const total = parseInt(i[6])
 								
 								d3Json.children.find(e => e.name == bossName).children.push({
 									name: i[0],
-									seconds,
-									value: parseFloat(mapping[seconds])
+									address:i[1],
+									total,
+									value: parseFloat(mapping[total])
 								})
-								
-
+								console.log(d3Json)
 								
 							}
 							treemapContainer.appendChild(mkSVG(treemapContainer, allBoss, d3Json))
