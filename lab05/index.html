@@ -6,16 +6,15 @@
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> <!-- v6.5
     <c.0 -->
     <style type="text/css">
-    	
+
     	div.bar {
     		border: 1px black solid;
-    		padding: 10px;
+    		padding: 1%;
     		/*margin: 5px 10px 5px 10px;*/
+        margin-left: 0.1%;
+        margin-right: 0.1%;
     		display: inline-block;
-    		width: 10px;
-    		height: 75px;
-    		background-color: pink;
-            vertical-align: bottom;
+        vertical-align: bottom;
     	}
 
     	body {
@@ -26,16 +25,13 @@
     </style>
 </head>
 <body>
-
-
     <script type="text/javascript">
       // Your beautiful D3 code will go here
 
     d3.text("data.csv", function(data) {
         var parsedCSV = d3.csv.parseRows(data)
-
         d3.select("body")
-          .selectAll("div") 
+          .selectAll("div")
           .data(parsedCSV)
           .enter()
           .append("div")
@@ -43,31 +39,28 @@
             return (i !=0);
           })
           .attr("class", "bar")
-          .text(function(d) {
+          .text(function(d, i) {
             return d[1];
           })
           .style("height", function(d) {
-            return d[1]*5 + "px";
+            return d[1] + "px";
+          })
+          .style("color", function(d, i) {
+            if( i % 2 == 0 ) {
+              return "#000";
+            }
+            else {
+              return "#FFF";
+            }
           })
           .style("background-color", function(d, i) {
             if( i % 2 == 1 ) {
-                return "#ccffff";
+              return "#000";
+            }
+            else {
+              return "#FFF";
             }
           })
     })
-
-    // d3.csv("data.csv", function(data){
-    //   d3.select("body")
-    //     .selectAll("div")
-    //     .data(data)
-    //     .enter()
-    //     .append("div")
-    //     .attr("class", "bar")
-    //     .style("height", function(d) {
-    //          return d['頻率'] + 'px';
-    //      })
-    // });
-
     </script>
 </html>
-  
