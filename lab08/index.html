@@ -2,6 +2,7 @@
 <html lang="zh-Hant-TW">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
     <title>Lab 8</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
@@ -27,8 +28,23 @@
         video:hover {
             box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
         }
+
+        .pen {
+          fill: none;
+          stroke: black;
+          stroke-width: 2;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+
+          stroke-dashoffset: 4;
+          animation-duration: 10s;
+          animation-iteration-count: 1;
+          animation-timing-function: ease;
+		  animation-iteration-count:100;
+        }
+
     </style>
-    <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
+    <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
 </head>
 <body>
     <h1>
@@ -46,26 +62,27 @@
     	</ul>
     </div>
 
-    <div>
-  		<video width="400" controls loop autoplay>
-  		  <source src="3.mp4" type="video/mp4">
-  		</video>
-    </div>
-
+    <div id="pen-display-area"></div>
     <div>
       展示區 (姓名)
       <hr>
       <img width="256" src="./lin.svg">
-      <img width="256" src="./jhe.svg">
-      <img width="256" src="./li.svg">
     </div>
 
     <div>
       Drag and Drop 展示區 (接收任何SVG)
     </div>
-
+    
     <script type="text/javascript">
       // Your beautiful D3 code will go here
+      d3.xml("lin-1.svg")
+        .then(data => {
+          d3.select("#pen-display-area").node().append(data.documentElement)
+          d3.select("#pen-display-area")
+            .select("svg")
+            .attr("width", 256)
+            .attr("id", "lin")
+        });
     </script>
-  </html>
-  
+</body>
+</html>

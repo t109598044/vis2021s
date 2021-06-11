@@ -41,28 +41,18 @@
         展示區 (姓名)
         <hr>
         <img width="256" src="./lin.svg">
-        <img width="256" src="./jhe.svg">
-        <img width="256" src="./li.svg">
     </div>
     <div>
         <div style="width:250px; display:inline-block;background-color:transparent;border-color:transparent;" id="firstWord"></div>
-        <div style="width:250px; display:inline-block;background-color:transparent;border-color:transparent;" id="secondWord"></div>
-        <div style="width:250px; display:inline-block;background-color:transparent;border-color:transparent;" id="thirdWord"></div>
     </div>
     <div>
         <div style="width:250px; display:inline-block;background-color:transparent;border-color:transparent;" id="firstWord1"></div>
-        <div style="width:250px; display:inline-block;background-color:transparent;border-color:transparent;" id="secondWord1"></div>
-        <div style="width:250px; display:inline-block;background-color:transparent;border-color:transparent;" id="thirdWord1"></div>
     </div>
     <script type="text/javascript">
         
         setInterval(window.onload = () => {
             loadWordFromPath('./lin.svg', '#firstWord', 0);
-            loadWordFromPath('./jhe.svg', '#secondWord', 0);
-            loadWordFromPath('./li.svg', '#thirdWord', 0);
             loadWordFromPath('./lin.svg', '#firstWord1', 1);
-            loadWordFromPath('./jhe.svg', '#secondWord1', 1);
-            loadWordFromPath('./li.svg', '#thirdWord1', 1);
 
             document.getElementById('dropfile').addEventListener('dragover', (evt) => {
                 evt.preventDefault()
@@ -416,4 +406,5 @@
             request.send();
         }
     </script>
-  </html>
+</body>
+</html>
