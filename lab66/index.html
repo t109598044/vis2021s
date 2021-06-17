@@ -1,160 +1,144 @@
 <!DOCTYPE html>
 
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
     <style>
-        html,
-        body {
-            height: 200%;
-        }
-        #training-section, #testing-section {
-            height: 100%;
-			overflow: hidden;
-        }
+      html,
+      body {
+        height: 200%;
+      }
+      #training-section,
+      #testing-section {
+        height: 100%;
+        overflow: hidden;
+      }
 
-        #train-vs-test {
-            height: 100%;
-            position: fixed;
-            max-width: 100%;
-        }
+      #train-vs-test {
+        height: 100%;
+        position: fixed;
+        max-width: 100%;
+      }
 
-        .padding {
-            height: 100%;
-        }
+      .padding {
+        height: 100%;
+      }
 
-        #right {
-            width: 60%;
-            height: 100%;
-            position: relative;
-            float: right;
-        }
-        #left {
-            width: 40%;
-            height: 100%;
-            float: left;
-        }
+      #right {
+        width: 60%;
+        height: 100%;
+        position: relative;
+        float: right;
+      }
+      #left {
+        width: 40%;
+        height: 100%;
+        float: left;
+      }
+      .container:hover {
+        opacity: 0.85;
+        position: relative;
+      }
+      .container:hover .text {
+        opacity: 1;
+      }
+      .middle {
+        transition: 0.5s ease;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .text {
+        opacity: 0;
+        background-color: #9879d0;
+        color: #f9d8a1;
+        font-size: 18px;
+        padding: 14px 28px;
+        font-weight: 500;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
+    <div id="right">
+      <div id="train-vs-test"></div>
+    </div>
 
-
-        <div id="right">
-            <div id="train-vs-test"></div>
+    <div id="left">
+      <div id="training-section">
+        <h1>訓練資料集的部分</h1>
+        <p>資料來源：<a href="https://data.gov.tw/dataset/139637">https://data.gov.tw/dataset/139637</a></p>
+        <p>組員：林哲立(109598044)、楊宸瑜(109598108)</p>
+        <p>
+          本資料為臺中市政府警察局110年3月份交通事故資料。 我們主要透過這份資料中的各種因素，去猜測這次事故是否嚴重。
+        </p>
+        <div>
+          <p>
+            資料說明：<br />
+            我們蒐集到的資料分為以下維度<br />
+            時、分、區、天候、光線、道路類別、速限、道路型態、事故位置、路面狀態、路面缺陷、障礙物、視距、號誌種類、事故類型及型態、主要肇因、受傷程度、主要傷處、保護裝備、車輛用途、當事者行動狀態、駕駛資格情形、飲酒情形、車輛撞擊部位最初、肇事因素個別、肇事因素主要、職業
+          </p>
         </div>
-
-        <div id="left">
-            <div id="training-section">
-				<h1>
-					訓練資料集的部分
-				</h1>
-            </div>
-            <div id="testing-section">
-				<h1>
-					測試資料集的部分
-				</h1>
-            </div>
+        <p>嚴重程度公式 = 死亡 * 10 + 受傷人數 * 1</p>
+        <div class="container">
+          <img src="./media/accident.jpg" width="100%" />
+          <div class="middle"><div class="text">車輛撞擊部位最初</div></div>
         </div>
-        
-        <script src="./lib/d3.v3.min.js"></script>
-        <script src="./lib/binarydecisiontree.min.js"></script>
+        <div class="container">
+          <img src="./media/weather.jpg" width="100%" />
+          <div class="middle"><div class="text">天候</div></div>
+        </div>
+        <div class="container">
+          <img src="./media/defect.jpg" width="100%" />
+          <div class="middle"><div class="text">路面缺陷</div></div>
+        </div>
+        <div class="container">
+          <img src="./media/sign.jpg" width="100%" />
+          <div class="middle"><div class="text">號誌種類</div></div>
+        </div>
+        <div class="container">
+          <img src="./media/drink.jpg" width="100%" />
+          <div class="middle"><div class="text">飲酒情形</div></div>
+        </div>
+      </div>
+      <div id="testing-section">
+        <h1>測試資料集的部分</h1>
+        <p>
+          從結果可知，其實此資料集不能有效分類嚴重程度。<br />可能原因為該資料只是為了警察局備案或者是我們選擇的條件不對。
+        </p>
+      </div>
+    </div>
 
-        <script>
-            var Lipsum = "區,日,時,死,受傷,天候,光線,道路類別,速限";
+    <script src="./lib/d3.v3.min.js"></script>
+    <script src="./lib/binarydecisiontree.min.js"></script>
 
-            window.onload = function () {
-                function resizeRight(){
-                    d3.select("#train-vs-test")
-                        .style("width", d3.select("#right").node().clientWidth + "px")
-                    ;
-                }
+    <script>
+      window.onload = function () {
+        function resizeRight() {
+          d3.select("#train-vs-test").style("width", d3.select("#right").node().clientWidth + "px");
+        }
 
-                resizeRight();
+        resizeRight();
 
-                d3.select(window)
-                    .on("resize", function(){ resizeRight() })
-                ;
+        d3.select(window).on("resize", function () {
+          resizeRight();
+        });
 
+        var bdt = new BinaryDecisionTree({
+          el: "#train-vs-test",
+          trainingSection: "#training-section",
+          testSection: "#testing-section",
+        });
 
-                /**
-                 * 填版面，不然全部都是白色的很單調
-                 * 這兩個 section 是要讓同學放說明資料和圖片的地方
-                d3.select("#training-section")
-                    .selectAll("p")
-                    .data(d3.range(1, 10))
-                    .enter()
-                    .append("p")
-                    .text(Lipsum)
-                ;
-                */
-
-                d3.select("#testing-section")
-                    .selectAll("p")
-                    .data(d3.range(1, 10))
-                    .enter()
-                    .append("p")
-                    .text(Lipsum)
-                ;
-				
-				d3.select("#training-section")
-                    .selectAll("img")
-					.data(d3.range(1, 4))
-					.enter()
-					.append("img")
-					.attr("src", function(d){ return "media/" + d + ".png"})
-                    .style('height', '350px')
-                    .style('width', '350px')
-                ;
-
-                d3.select("#testing-section")
-                    .selectAll("img")
-					.data(d3.range(4, 7))
-					.enter()
-					.append("img")
-					.attr("src", function(d){ return "media/" + d + ".png"})
-                    .style('height', '350px')
-                    .style('width', '350px')
-                ;
-				
-                var bdt = new BinaryDecisionTree({
-                    el: "#train-vs-test",
-                    trainingSection: "#training-section",
-                    testSection: "#testing-section",
-                    
-					/**
-                     * 預設會讓小球在上方排排站
-                     * 如果不要排排站的話，必須要把這個 paramater 設成 false
-                     * 如果要排排站的話，直接註解掉這行就行
-                    */
-                    //flood: false
-                });
-
-                bdt.setDataFromJson("./dataset.json", function(){
-                    bdt.install();
-                    bdt.play();
-                })
-
-                /**
-                 * or
-                 * bdt.setDataFromObject({ 
-                 *  tree_data: tree_data,
-                 *  tree_training_set: tree_training_set,
-                 *  tree_stats: tree_stats, 
-                 *  tree_test_set: tree_test_set, 
-                 *  test_stats : test_stats
-                 * })
-                 * 同步函式，不需要 callback
-                 * bdt.install();
-                 * bdt.play();
-                */
-            }
-        </script>
-
-</body>
-
-
-
+        bdt.setDataFromJson("./dataset.json", function () {
+          bdt.install();
+          bdt.play();
+        });
+      };
+    </script>
+  </body>
 </html>
