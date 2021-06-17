@@ -161,9 +161,9 @@ label = datacsv.columns[0]
 data = datacsv.to_numpy()
 
 # 隨機選擇n筆資料
-n = 400
-cls_list = random.sample(data[:,0].tolist(), 5)
+n = 500
 data_sample = []
+cls_list = [0,1]
 for cls in cls_list:
    data_random = random.sample(data[data[:,0]==cls].tolist(), int(n / len(cls_list)))
    data_sample += data_random
