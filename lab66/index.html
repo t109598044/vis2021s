@@ -59,14 +59,11 @@
             </div>
         </div>
         
-        
-        
-        
         <script src="./lib/d3.v3.min.js"></script>
         <script src="./lib/binarydecisiontree.min.js"></script>
 
         <script>
-            var Lipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+            var Lipsum = "區,日,時,死,受傷,天候,光線,道路類別,速限";
 
             window.onload = function () {
                 function resizeRight(){
@@ -85,7 +82,6 @@
                 /**
                  * 填版面，不然全部都是白色的很單調
                  * 這兩個 section 是要讓同學放說明資料和圖片的地方
-                */
                 d3.select("#training-section")
                     .selectAll("p")
                     .data(d3.range(1, 10))
@@ -93,6 +89,7 @@
                     .append("p")
                     .text(Lipsum)
                 ;
+                */
 
                 d3.select("#testing-section")
                     .selectAll("p")
@@ -122,8 +119,6 @@
                     .style('width', '350px')
                 ;
 				
-				
-
                 var bdt = new BinaryDecisionTree({
                     el: "#train-vs-test",
                     trainingSection: "#training-section",

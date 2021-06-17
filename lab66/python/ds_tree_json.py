@@ -11,8 +11,10 @@ import pandas as pd
 import pathlib
 from sklearn.preprocessing import LabelEncoder
 import json
+import random
+import numpy
 
-def tree2json(clf, features, labels, node_index=0):    
+def tree2json(clf, features, labels, node_index=0):
     node = {}
     if clf.tree_.children_left[node_index] == -1:  # indicates leaf
         node['samples'] = clf.tree_.n_node_samples[node_index]
@@ -39,7 +41,7 @@ def dataset2json(dataset, datasety, index, features):
         data = {}
         for j in range(len(features)):
             data[features[j]] = dataset[i][j]
-            
+
         data['index'] = index[i]
         data['target'] = datasety[i]
         data_json.append(data)
@@ -49,7 +51,7 @@ def findMaxMin(dataset, featureIndex):
     values = []
     for data in dataset:
         values.append(data[featureIndex])
-        
+
     if values == []:
         return 0,0
     else:
@@ -63,32 +65,32 @@ def sortData(datasetX, datasety, dataIndex, threshold, featureIndex):
         index = dataIndex[i]
         data = datasetX[i]
         feature = datasetX[i]
-        
+
         if featureIndex > -1:
             feature = feature[featureIndex]
-        
+
         if feature <= threshold:
             left_side['index'].append(index)
             left_side['feature'].append(feature)
             left_side['data'].append(data)
             left_side['class'].append(datasety[i])
-        else:  
+        else:
             right_side['index'].append(index)
             right_side['feature'].append(feature)
             right_side['data'].append(data)
             right_side['class'].append(datasety[i])
-            
+
     return left_side, right_side
-    
+
 def tree_state(datasetX, datasety, clf, features, dataIndex, node_index=0, nodes=None):
     node = {}
-    
+
     if nodes == None:
         nodes=[]
-    
+
     featureIndex = clf.tree_.feature[node_index]
     false_side, true_side = sortData(datasety, datasety, dataIndex, 0, -1)
-                  
+
     if clf.tree_.children_left[node_index] == -1:  # indicates leaf
         node['data_rows'] = {
             'false':false_side['index'],
@@ -96,17 +98,17 @@ def tree_state(datasetX, datasety, clf, features, dataIndex, node_index=0, nodes
             }
         node['has_children'] = 'false'
         node['node'] = node_index
-        
+
         nodes.append(node)
-    
+
     else:
         maxVal, minVal = findMaxMin(datasetX, featureIndex)
-        left_side, right_side = sortData(datasetX, 
-                                         datasety, 
-                                         dataIndex, 
+        left_side, right_side = sortData(datasetX,
+                                         datasety,
+                                         dataIndex,
                                          clf.tree_.threshold[node_index],
                                          featureIndex)
-            
+
         node['attribute'] = features[featureIndex]
         node['data_rows'] = {
             'false':false_side['index'],
@@ -116,17 +118,17 @@ def tree_state(datasetX, datasety, clf, features, dataIndex, node_index=0, nodes
             'false':false_side['feature'],
             'true':true_side['feature']
             }
-        node['has_children'] = 'true'        
+        node['has_children'] = 'true'
         node['max_val'] = maxVal
         node['min_val'] = minVal
         node['node'] = node_index
-                
+
         node['split_location'] = {
             'left_side':left_side['index'],
             'right_side':right_side['index']
             }
         node['split_point'] = clf.tree_.threshold[node_index]
-        
+
         nodes.append(node)
 
         #下一節點
@@ -137,16 +139,13 @@ def tree_state(datasetX, datasety, clf, features, dataIndex, node_index=0, nodes
                    left_side['index'], left_index, nodes)
         tree_state(right_side['data'], right_side['class'], clf, features,
                    right_side['index'], right_index, nodes)
-        
+
     return nodes
 
 datacsv = pd.read_csv(str(pathlib.Path.cwd())+'/dataset_noempty.csv') # rawData / dataset_noempty
 datacsv = datacsv.fillna(0)
 labelencoder = LabelEncoder()
 datacsv['區']= labelencoder.fit_transform(datacsv['區'])
-
-# 隨機選擇50筆
-datacsv = datacsv.sample(n=400)
 
 columns = datacsv.columns.tolist()
 
@@ -157,11 +156,24 @@ features = datacsv.columns[1:]
 label = datacsv.columns[0]
 
 #資料索引
-index = list(range(datacsv.shape[0]))
+# index = list(range(datacsv.shape[0]))
 
 data = datacsv.to_numpy()
+
+# 隨機選擇n筆資料
+n = 400
+cls_list = random.sample(data[:,0].tolist(), 5)
+data_sample = []
+for cls in cls_list:
+   data_random = random.sample(data[data[:,0]==cls].tolist(), int(n / len(cls_list)))
+   data_sample += data_random
+data = numpy.array(data_sample)
+
 X = data[:,1:]
 y = data[:,0]
+
+#資料索引
+index = list(range(len(y)))
 
 #73分拆
 X_train, X_test, y_train, y_test, train_index, test_index = \
@@ -191,8 +203,3 @@ output = eval(str({
 
 with open('dataset.json', 'w', encoding='utf-8') as f:
     f.write(json.dumps(output, ensure_ascii=False, indent=4))
-
-
-
-
-
