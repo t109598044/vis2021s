@@ -1,0 +1,535 @@
+/* lin */
+.line-lin-1 {
+  clip-path: url(#lin-1);
+
+  stroke-dasharray: 75;
+  animation-name: draw-lin-1;
+}
+@keyframes draw-lin-1 {
+  0% {
+    stroke-dashoffset: 75;
+  }
+
+  12% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-lin-2 {
+  clip-path: url(#lin-2);
+
+  stroke-dasharray: 250;
+  animation-name: draw-lin-2;
+}
+@keyframes draw-lin-2 {
+  0%,
+  13% {
+    stroke-dashoffset: 250;
+  }
+
+  25% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-lin-3 {
+  clip-path: url(#lin-3);
+
+  stroke-dasharray: 124;
+  animation-name: draw-lin-3;
+}
+@keyframes draw-lin-3 {
+  0%,
+  25% {
+    stroke-dashoffset: 124;
+  }
+
+  38% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-lin-4 {
+  clip-path: url(#lin-4);
+
+  stroke-dasharray: 201;
+  animation-name: draw-lin-4;
+}
+@keyframes draw-lin-4 {
+  0%,
+  38% {
+    stroke-dashoffset: 201;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-lin-5 {
+  clip-path: url(#lin-5);
+
+  stroke-dasharray: 200;
+  animation-name: draw-lin-5;
+}
+@keyframes draw-lin-5 {
+  0%,
+  50% {
+    stroke-dashoffset: 200;
+  }
+
+  63% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-lin-6 {
+  clip-path: url(#lin-6);
+
+  stroke-dasharray: 200;
+  animation-name: draw-lin-6;
+}
+@keyframes draw-lin-6 {
+  0%,
+  63% {
+    stroke-dashoffset: 200;
+  }
+
+  76% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-lin-7 {
+  clip-path: url(#lin-7);
+
+  stroke-dasharray: 200;
+  animation-name: draw-lin-7;
+}
+@keyframes draw-lin-7 {
+  0%,
+  76% {
+    stroke-dashoffset: 200;
+  }
+
+  88% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-lin-8 {
+  clip-path: url(#lin-8);
+
+  stroke-dasharray: 200;
+  animation-name: draw-lin-8;
+}
+@keyframes draw-lin-8 {
+  0%,
+  88% {
+    stroke-dashoffset: 200;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* jia */
+.line-jia-1 {
+  clip-path: url(#jia-1);
+
+  stroke-dasharray: 75;
+  animation-name: draw-jia-1;
+}
+@keyframes draw-jia-1 {
+  0% {
+    stroke-dashoffset: 75;
+  }
+
+  7% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-2 {
+  clip-path: url(#jia-2);
+
+  stroke-dasharray: 250;
+  animation-name: draw-jia-2;
+}
+@keyframes draw-jia-2 {
+  0%,
+  7% {
+    stroke-dashoffset: 250;
+  }
+
+  15% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-3 {
+  clip-path: url(#jia-3);
+
+  stroke-dasharray: 124;
+  animation-name: draw-jia-3;
+}
+@keyframes draw-jia-3 {
+  0%,
+  15% {
+    stroke-dashoffset: 124;
+  }
+
+  22% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-4 {
+  clip-path: url(#jia-4);
+
+  stroke-dasharray: 201;
+  animation-name: draw-jia-4;
+}
+@keyframes draw-jia-4 {
+  0%,
+  22% {
+    stroke-dashoffset: 201;
+  }
+
+  29% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-5 {
+  clip-path: url(#jia-5);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-5;
+}
+@keyframes draw-jia-5 {
+  0%,
+  29% {
+    stroke-dashoffset: 200;
+  }
+
+  36% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-6 {
+  clip-path: url(#jia-6);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-6;
+}
+@keyframes draw-jia-6 {
+  0%,
+  36% {
+    stroke-dashoffset: 200;
+  }
+
+  43% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-7 {
+  clip-path: url(#jia-7);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-7;
+}
+@keyframes draw-jia-7 {
+  0%,
+  43% {
+    stroke-dashoffset: 200;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-8 {
+  clip-path: url(#jia-8);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-8;
+}
+@keyframes draw-jia-8 {
+  0%,
+  50% {
+    stroke-dashoffset: 200;
+  }
+
+  57% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-9 {
+  clip-path: url(#jia-9);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-9;
+}
+@keyframes draw-jia-9 {
+  0%,
+  57% {
+    stroke-dashoffset: 200;
+  }
+
+  64% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-10 {
+  clip-path: url(#jia-10);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-10;
+}
+@keyframes draw-jia-10 {
+  0%,
+  64% {
+    stroke-dashoffset: 200;
+  }
+
+  71% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-11 {
+  clip-path: url(#jia-11);
+
+  stroke-dasharray: 250;
+  animation-name: draw-jia-11;
+}
+@keyframes draw-jia-11 {
+  0%,
+  71% {
+    stroke-dashoffset: 250;
+  }
+
+  78% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-12 {
+  clip-path: url(#jia-12);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-12;
+}
+@keyframes draw-jia-12 {
+  0%,
+  78% {
+    stroke-dashoffset: 200;
+  }
+
+  86% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-jia-13 {
+  clip-path: url(#jia-13);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-13;
+}
+@keyframes draw-jia-13 {
+  0%,
+  86% {
+    stroke-dashoffset: 200;
+  }
+
+  92% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+.line-jia-14 {
+  clip-path: url(#jia-14);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-14;
+}
+@keyframes draw-jia-14 {
+  0%,
+  92% {
+    stroke-dashoffset: 200;
+  }
+
+  95% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+.line-jia-15 {
+  clip-path: url(#jia-15);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-15;
+}
+@keyframes draw-jia-15 {
+  0%,
+  95% {
+    stroke-dashoffset: 200;
+  }
+
+  97% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+.line-jia-16 {
+  clip-path: url(#jia-16);
+
+  stroke-dasharray: 200;
+  animation-name: draw-jia-16;
+}
+@keyframes draw-jia-16 {
+  0%,
+  97% {
+    stroke-dashoffset: 200;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* xin */
+.line-xin-1 {
+  clip-path: url(#xin-1);
+
+  stroke-dasharray: 250;
+  animation-name: draw-xin-1;
+}
+@keyframes draw-xin-1 {
+  0% {
+    stroke-dashoffset: 300;
+  }
+
+  20% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-xin-2 {
+  clip-path: url(#xin-2);
+
+  stroke-dasharray: 250;
+  animation-name: draw-xin-2;
+}
+@keyframes draw-xin-2 {
+  0%,
+  20% {
+    stroke-dashoffset: 250;
+  }
+
+  28% {
+    stroke-dashoffset: 0;
+  }
+}
+.line-xin-3 {
+  clip-path: url(#xin-3);
+
+  stroke-dasharray: 124;
+  animation-name: draw-xin-3;
+}
+@keyframes draw-xin-3 {
+  0%,
+  28% {
+    stroke-dashoffset: 124;
+  }
+
+  42% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-xin-4 {
+  clip-path: url(#xin-4);
+
+  stroke-dasharray: 201;
+  animation-name: draw-xin-4;
+}
+@keyframes draw-xin-4 {
+  0%,
+  42% {
+    stroke-dashoffset: 201;
+  }
+
+  56% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-xin-5 {
+  clip-path: url(#xin-5);
+
+  stroke-dasharray: 200;
+  animation-name: draw-xin-5;
+}
+@keyframes draw-xin-5 {
+  0%,
+  56% {
+    stroke-dashoffset: 200;
+  }
+
+  70% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-xin-6 {
+  clip-path: url(#xin-6);
+
+  stroke-dasharray: 200;
+  animation-name: draw-xin-6;
+}
+@keyframes draw-xin-6 {
+  0%,
+  70% {
+    stroke-dashoffset: 200;
+  }
+
+  84% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-xin-7 {
+  clip-path: url(#xin-7);
+
+  stroke-dasharray: 200;
+  animation-name: draw-xin-7;
+}
+@keyframes draw-xin-7 {
+  0%,
+  84% {
+    stroke-dashoffset: 200;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+
+
+
